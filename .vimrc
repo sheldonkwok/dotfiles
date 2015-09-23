@@ -58,9 +58,10 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 nnoremap ; :
 nnoremap : ;
 
-set ai
-" set number
+set number
+highlight LineNr ctermfg=DarkGrey
 
+set ai
 set expandtab
 set tabstop=2
 retab
