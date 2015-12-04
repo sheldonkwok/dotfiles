@@ -20,11 +20,11 @@ path=(
   /usr/local/packer
 )
 
+export PYTHONPATH=/lib/python2.7/site-packages # $HOME/Library/Python/2.7/lib/python/site-packages
+
 # I just use the os x keychain manager now
 # eval `keychain --eval id_rsa`
 
-# Docker VM
-eval "$(docker-machine env local)"
 
 # NVM
 export NVM_DIR=$HOME/.nvm
@@ -50,3 +50,9 @@ source ~/.bash_aliases
 
 # AWS Tab Complete
 # source /bin/aws_zsh_completer.sh
+
+# NPM Tab complete
+eval "`npm completion`"
+
+# Docker VM
+eval "$(docker-machine env local)"
