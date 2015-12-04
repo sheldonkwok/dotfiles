@@ -27,6 +27,7 @@ Plugin 'Valloric/YouCompleteMe'
 " Languages
 Plugin 'scrooloose/syntastic'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mtscout6/vim-cjsx'
 Plugin 'fatih/vim-go'
@@ -83,6 +84,8 @@ set lazyredraw
 
 set backspace=indent,eol,start
 
+
+
 function! RestoreRegister()
   let @" = s:restore_reg
   return ''
@@ -119,3 +122,6 @@ noremap ts :Tab/:\zs /l0<CR>
 " Go
 let g:go_fmt_command = "goimports"
 set completeopt-=preview
+
+" Python
+" let g:syntastic_python_checkers = [flake8]
