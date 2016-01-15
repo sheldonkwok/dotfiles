@@ -36,6 +36,7 @@ Plugin 'elzr/vim-json'
 Plugin 'yosssi/vim-ace'
 Plugin 'wavded/vim-stylus'
 Plugin 'cespare/vim-toml'
+Plugin 'hashivim/vim-terraform'
 Bundle 'chase/vim-ansible-yaml'
 
 call vundle#end()
@@ -65,11 +66,10 @@ highlight LineNr ctermfg=DarkGrey
 set ai
 set expandtab
 set tabstop=2
-retab
 set shiftwidth=2
 set autoindent
 set smarttab
-au FileType python setl sw=4 sts=4 et
+retab
 
 set hlsearch
 set incsearch
@@ -125,3 +125,7 @@ set completeopt-=preview
 
 " Python
 " let g:syntastic_python_checkers = [flake8]
+au FileType python setl sw=4 sts=4 et
+
+" Terraform
+au FileType terraform setl sw=4 sts=4 et
