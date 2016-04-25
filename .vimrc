@@ -38,6 +38,8 @@ Plugin 'wavded/vim-stylus'
 Plugin 'cespare/vim-toml'
 Plugin 'hashivim/vim-terraform'
 Bundle 'chase/vim-ansible-yaml'
+Bundle 'leafo/moonscript-vim'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -49,6 +51,7 @@ au BufRead,BufNewFile *.ctmpl set filetype=gotexttmpl
 au BufRead,BufNewFile *.dockerfile set filetype=dockerfile
 
 let g:syntastic_mode_map = { 'passive_filetypes': ['coffee'] }
+let g:syntastic_javascript_checkers = ['eslint']
 
 " vimrc settings
 au VimEnter * RainbowParenthesesToggle
