@@ -1,71 +1,56 @@
 set t_Co=256
 set background=dark
-colorscheme peachpuff
+colorscheme fmj
 
-""" Start Vundle
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-""" Plugins
+""" Plugs
 " Tools
-Plugin 'chriskempson/base16-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bronson/vim-trailing-whitespace'
-" Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'mtth/scratch.vim'
+Plug 'scrooloose/nerdtree'
+" Plug 'kien/rainbow_parentheses.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'dbakker/vim-projectroot'
+" Plug 'majutsushi/tagbar'
 
-" Languages
-Plugin 'scrooloose/syntastic'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx'
-Plugin 'fatih/vim-go'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'elzr/vim-json'
-Plugin 'yosssi/vim-ace'
-Plugin 'wavded/vim-stylus'
-Plugin 'cespare/vim-toml'
-Plugin 'hashivim/vim-terraform'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'leafo/moonscript-vim'
+Plug 'chriskempson/base16-vim'
+" Plug 'tomtom/tlib_vim'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'itchyny/lightline.vim'
+Plug 'edkolev/tmuxline.vim'
 
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'Valloric/YouCompleteMe'
+Plug 'sbdchd/neoformat'
 
-call vundle#end()
-filetype plugin indent on
-""" End Vundle
+Plug 'sheerun/vim-polyglot'
+Plug 'HerringtonDarkholme/yats.vim'
+
+call plug#end()
+
+syntax enable
+
 
 " file types
 au BufRead,BufNewFile *.json.ejs set filetype=json
 au BufRead,BufNewFile *.ctmpl set filetype=gotexttmpl
 au BufRead,BufNewFile *.dockerfile set filetype=dockerfile
 
-let g:syntastic_mode_map = { 'passive_filetypes': ['coffee'] }
-let g:syntastic_javascript_checkers = ['eslint']
-
-" vimrc settings
-au VimEnter * RainbowParenthesesToggle
-
-syntax enable
+" remaps
+let mapleader = ","
+nnoremap ; :
+nnoremap : ;
 
 vnoremap <leader>p "_dP
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-nnoremap ; :
-nnoremap : ;
 
 set number
 highlight LineNr ctermfg=DarkGrey
 
+filetype plugin indent on
 set ai
 set expandtab
 set tabstop=2
@@ -84,10 +69,13 @@ set incsearch
 
 set ttyfast
 set lazyredraw
+set ff=unix
+
+set autoread " autoreload
 
 set backspace=indent,eol,start
 
-
+set mouse-=a
 
 function! RestoreRegister()
   let @" = s:restore_reg
@@ -101,6 +89,11 @@ endfunction
 
 vnoremap <silent> <expr> p <sid>Repl()
 
+" resize vim
+autocmd VimResized * wincmd =
+
+noremap <Leader><Leader> :q <CR>
+
 " tabs
 nnoremap tt :tabnew<CR>
 nnoremap tp :tabprev<CR>
@@ -108,19 +101,28 @@ nnoremap tn :tabnext<CR>
 
 " Always show statusline
 set laststatus=2
-"
+
+set noswapfile
+
 " Autofix whitespace
-:autocmd BufWritePost * :FixWhitespace
+autocmd BufWritePost * :FixWhitespace
 
 highlight SignColumn ctermbg=none
 
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" Scratch
+let g:scratch_autohide = "hidden"
 
-" Tabular
-noremap ta :Tab /=<CR>
-noremap ts :Tab/:\zs /l0<CR>
+" fzf
+nnoremap <Leader>f :ProjectRootExe :Files <CR>
+nnoremap <Leader>b :Buffers <CR>
+
+" Typescript
+let g:polyglot_disabled = ['typescript']
+autocmd BufWritePre *.ts Neoformat
+autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
+
+" Flow
+let g:javascript_plugin_flow = 1
 
 " Go
 let g:go_fmt_command = "goimports"
@@ -130,5 +132,14 @@ set completeopt-=preview
 " let g:syntastic_python_checkers = [flake8]
 au FileType python setl sw=4 sts=4 et
 
-" Terraform
-au FileType terraform setl sw=4 sts=4 et
+let g:neoformat_try_formatprg = 1
+
+" Rust
+let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
+
+autocmd BufWritePre *.tf Neoformat
+autocmd BufWritePre *.json Neoformat
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
