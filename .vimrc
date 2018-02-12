@@ -24,15 +24,15 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Valloric/YouCompleteMe'
-Plug 'sbdchd/neoformat'
+Plug 'w0rp/ale'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'hashivim/vim-terraform'
 Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
 
 syntax enable
-
 
 " file types
 au BufRead,BufNewFile *.json.ejs set filetype=json
@@ -116,9 +116,21 @@ let g:scratch_autohide = "hidden"
 nnoremap <Leader>f :ProjectRootExe :Files <CR>
 nnoremap <Leader>b :Buffers <CR>
 
+" ale
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'typescript': ['prettier'],
+\   'json': ['prettier'],
+\}
+
+" Polyglot
+let g:polyglot_disabled = ['terraform']
+
+" Terraform
+let g:terraform_fmt_on_save = 1
+
 " Typescript
 let g:polyglot_disabled = ['typescript']
-autocmd BufWritePre *.ts Neoformat
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
 
 " Flow
@@ -129,16 +141,10 @@ let g:go_fmt_command = "goimports"
 set completeopt-=preview
 
 " Python
-" let g:syntastic_python_checkers = [flake8]
 au FileType python setl sw=4 sts=4 et
-
-let g:neoformat_try_formatprg = 1
 
 " Rust
 let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
-
-autocmd BufWritePre *.tf Neoformat
-autocmd BufWritePre *.json Neoformat
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
