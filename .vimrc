@@ -132,6 +132,7 @@ let g:terraform_fmt_on_save = 1
 " Typescript
 let g:polyglot_disabled = ['typescript']
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
+autocmd FileType typescript nnoremap <Leader>t :YcmCompleter GetType <CR>
 
 " Flow
 let g:javascript_plugin_flow = 1
