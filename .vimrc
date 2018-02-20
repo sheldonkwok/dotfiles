@@ -28,6 +28,8 @@ Plug 'w0rp/ale'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'hashivim/vim-terraform'
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
 Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
@@ -126,6 +128,11 @@ let g:ale_fixers = {
 " Polyglot
 let g:polyglot_disabled = ['terraform']
 
+" HCL
+let g:hcl_fmt_autosave = 1
+let g:tf_fmt_autosave = 0
+let g:nomad_fmt_autosave = 0
+
 " Terraform
 let g:terraform_fmt_on_save = 1
 
@@ -143,6 +150,9 @@ set completeopt-=preview
 
 " Python
 au FileType python setl sw=4 sts=4 et
+
+" Jenkinsfile
+au FileType Jenkinsfile setl sw=4 sts=4 et
 
 " Rust
 let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
