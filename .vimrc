@@ -8,16 +8,13 @@ call plug#begin('~/.vim/plugged')
 " Tools
 Plug 'mtth/scratch.vim'
 Plug 'scrooloose/nerdtree'
-" Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'dbakker/vim-projectroot'
-" Plug 'majutsushi/tagbar'
 
 Plug 'chriskempson/base16-vim'
-" Plug 'tomtom/tlib_vim'
-" Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
 
@@ -123,7 +120,11 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \   'json': ['prettier'],
+\   'markdown': ['prettier'],
 \}
+
+let g:ale_yaml_yamllint_options =
+\   get(g:, 'ale_yaml_yamllint_options', '-c $HOME/.yamllint.yml')
 
 " Polyglot
 let g:polyglot_disabled = ['terraform']
