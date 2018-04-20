@@ -118,6 +118,7 @@ nnoremap <Leader>b :Buffers <CR>
 " ale
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+\   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'json': ['prettier'],
 \   'markdown': ['prettier'],
@@ -141,6 +142,7 @@ let g:terraform_fmt_on_save = 1
 let g:polyglot_disabled = ['typescript']
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
 autocmd FileType typescript nnoremap <Leader>t :YcmCompleter GetType <CR>
+autocmd FileType typescript nnoremap <Leader>r :YcmCompleter RefactorRename 
 
 " Flow
 let g:javascript_plugin_flow = 1
