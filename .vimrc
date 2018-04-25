@@ -124,6 +124,8 @@ let g:ale_fixers = {
 \   'markdown': ['prettier'],
 \}
 
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 110'
+
 let g:ale_yaml_yamllint_options =
 \   get(g:, 'ale_yaml_yamllint_options', '-c $HOME/.yamllint.yml')
 
@@ -142,7 +144,7 @@ let g:terraform_fmt_on_save = 1
 let g:polyglot_disabled = ['typescript']
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
 autocmd FileType typescript nnoremap <Leader>t :YcmCompleter GetType <CR>
-autocmd FileType typescript nnoremap <Leader>r :YcmCompleter RefactorRename 
+autocmd FileType typescript nnoremap <Leader>r :YcmCompleter RefactorRename
 
 " Flow
 let g:javascript_plugin_flow = 1
