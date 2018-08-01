@@ -28,6 +28,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'shime/vim-livedown'
 
 call plug#end()
 
@@ -95,8 +96,10 @@ noremap <Leader><Leader> :q <CR>
 
 " tabs
 nnoremap tt :tabnew<CR>
-nnoremap tp :tabprev<CR>
-nnoremap tn :tabnext<CR>
+nnoremap tn1 :tabn 1<CR>
+nnoremap tn2 :tabn 2<CR>
+nnoremap tn3 :tabn 3<CR>
+nnoremap tn4 :tabn 4<CR>
 
 " Always show statusline
 set laststatus=2
