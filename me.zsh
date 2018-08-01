@@ -2,6 +2,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 [[ -s "/home/sheldon/.gvm/scripts/gvm" ]] && source "/home/sheldon/.gvm/scripts/gvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -14,12 +17,13 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.local/ssi:$HOME/.ssi/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/nvim-linux64/bin
 
-source $HOME/.local/aws/bin/aws_zsh_completer.sh
+source aws_zsh_completer.sh
 source <(kops completion zsh)
 
 # change wallpaper
+# change-wallpaper
+
 xset r rate 300 100 # keyboard repeat
-change-wallpaper
 
 # Use gitignore with fzf
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -49,3 +53,5 @@ alias ip='ip -c'
 alias ipb='ip -brief'
 alias code='code -n'
 alias t='terraform'
+
+setxkbmap -option "caps:swapescape"

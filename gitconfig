@@ -1,0 +1,7 @@
+[user]
+	email = sheldon@secondspectrum.com
+	name = Sheldon Kwok
+[core]
+	editor = nvim
+[alias]
+	co = checkout

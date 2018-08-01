@@ -57,7 +57,7 @@
 "wmctrl -a Chrome"
   alt + shift + c
 
-"wmctrl -a Nightly"
+"wmctrl -a Firefox"
   alt + shift + f
 
 "wmctrl -a Slack"
