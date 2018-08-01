@@ -2,7 +2,7 @@ set t_Co=256
 set background=dark
 colorscheme fmj
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 """ Plugs
 " Tools
