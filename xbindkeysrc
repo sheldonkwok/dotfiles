@@ -57,9 +57,6 @@
 "wmctrl -a Chrome"
   alt + shift + c
 
-"wmctrl -a Firefox"
-  alt + shift + f
-
 "wmctrl -a Slack"
   alt + shift + s
 
