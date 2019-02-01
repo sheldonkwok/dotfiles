@@ -23,11 +23,13 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 
+Plug 'fatih/vim-go'
+Plug 'HerringtonDarkholme/yats.vim'
+let g:polyglot_disabled = ['go', 'typescsript']
 Plug 'sheerun/vim-polyglot'
 Plug 'hashivim/vim-terraform'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'shime/vim-livedown'
 
 call plug#end()
@@ -120,8 +122,8 @@ nnoremap <Leader>b :Buffers <CR>
 
 " ale
 let g:ale_fix_on_save = 1
+" \   'javascript': ['prettier'],
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'json': ['prettier'],
 \   'markdown': ['prettier'],
