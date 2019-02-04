@@ -1,7 +1,14 @@
 [user]
-	email = sheldon@secondspectrum.com
-	name = Sheldon Kwok
+  email = sheldon@secondspectrum.com
+  name = Sheldon Kwok
 [core]
-	editor = nvim
+  editor = nvim
 [alias]
-	co = checkout
+  ph = push
+  phf = push --force-with-lease
+  pl = pull
+  plr = pull --rebase
+  co = checkout
+  rbm = rebase master
+  rbim = rebase --interactive master
+  rbc = rebase --continue
