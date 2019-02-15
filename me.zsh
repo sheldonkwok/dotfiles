@@ -1,7 +1,7 @@
 export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
@@ -42,10 +42,7 @@ alias dc='docker-compose'
 alias fuckresolved='sudo systemctl stop systemd-resolved.service && sudo systemctl stop systemd-resolved.service'
 alias dig8='dig @8.8.8.8'
 alias gpr='git pull --rebase -p --progress'
-alias gpf='git push --force-with-lease'
-alias grim='git rebase -i origin/master'
 alias k='kubectl'
-alias kp='kubectl -n prod'
 alias kks='kubectl -n kube-system'
 alias y='yarn'
 alias git-clean-merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
@@ -55,5 +52,12 @@ alias ipb='ip -brief'
 alias code='code -n'
 alias t='terraform'
 alias ag='rg'
+alias open='kde-open5'
+alias dr='docker run --rm'
+alias cat='bat'
+alias ping='prettyping'
+alias n='npm'
+alias nr='npm run'
+
 
 setxkbmap -option "caps:swapescape"

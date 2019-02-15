@@ -22,8 +22,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'fatih/vim-go'
+Plug 'slashmili/alchemist.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 let g:polyglot_disabled = ['go', 'typescsript']
 Plug 'sheerun/vim-polyglot'
@@ -97,7 +99,7 @@ autocmd VimResized * wincmd =
 noremap <Leader><Leader> :q <CR>
 
 " tabs
-nnoremap tt :tabnew<CR>
+nnoremap tt :tabnew .<CR>
 nnoremap tn1 :tabn 1<CR>
 nnoremap tn2 :tabn 2<CR>
 nnoremap tn3 :tabn 3<CR>
@@ -123,9 +125,9 @@ nnoremap <Leader>b :Buffers <CR>
 " ale
 let g:ale_fix_on_save = 1
 " \   'javascript': ['prettier'],
+" \   'json': ['prettier'],
 let g:ale_fixers = {
 \   'typescript': ['prettier'],
-\   'json': ['prettier'],
 \   'markdown': ['prettier'],
 \}
 

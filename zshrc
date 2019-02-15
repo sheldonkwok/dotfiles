@@ -1,3 +1,5 @@
+setopt HIST_IGNORE_ALL_DUPS
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -97,3 +99,12 @@ compinit
 
 source ~/.me.zsh
 source ~/.work.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
