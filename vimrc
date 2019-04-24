@@ -20,23 +20,52 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
-Plug 'fatih/vim-go'
-Plug 'slashmili/alchemist.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-let g:polyglot_disabled = ['go', 'typescsript']
+let g:polyglot_disabled = ['go', 'typescsript', 'elixir']
 Plug 'sheerun/vim-polyglot'
+
+" golang
+Plug 'fatih/vim-go'
+
+" elixir
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
+" markdown
+Plug 'shime/vim-livedown'
+
+" typescript
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Quramy/vim-js-pretty-template'
+
+autocmd FileType typescript let $PATH .= ":" . trim(system("npm bin"))
+
+
+" terraform
 Plug 'hashivim/vim-terraform'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
-Plug 'shime/vim-livedown'
 
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 syntax enable
+
+let g:AutoPairsFlyMode = 1
+
+call jspretmpl#register_tag('sql', 'sql')
+" autocmd FileType typescript syn clear typescriptTemplate
+autocmd FileType typescript JsPreTmpl
+
 
 " file types
 au BufRead,BufNewFile *.json.ejs set filetype=json
@@ -124,9 +153,10 @@ nnoremap <Leader>b :Buffers <CR>
 
 " ale
 let g:ale_fix_on_save = 1
-" \   'javascript': ['prettier'],
 " \   'json': ['prettier'],
+" \   'elixir': ['mix_format'],
 let g:ale_fixers = {
+\   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'markdown': ['prettier'],
 \}
@@ -152,9 +182,6 @@ let g:polyglot_disabled = ['typescript']
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
 autocmd FileType typescript nnoremap <Leader>t :YcmCompleter GetType <CR>
 autocmd FileType typescript nnoremap <Leader>r :YcmCompleter RefactorRename
-
-" Flow
-let g:javascript_plugin_flow = 1
 
 " Go
 let g:go_fmt_command = "goimports"
