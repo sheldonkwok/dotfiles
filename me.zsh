@@ -13,7 +13,6 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.local/ssi:$HOME/.ssi/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/nvim-linux64/bin
@@ -44,7 +43,6 @@ alias dig8='dig @8.8.8.8'
 alias gpr='git pull --rebase -p --progress'
 alias k='kubectl'
 alias kks='kubectl -n kube-system'
-alias y='yarn'
 alias git-clean-merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gcnv='git commit --no-verify'
 alias ip='ip -c'
