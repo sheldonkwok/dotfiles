@@ -9,6 +9,8 @@
   pl = pull
   plr = pull --rebase
   co = checkout
+  cob = checkout -b
+  rb = rebase
   rbm = rebase master
   rbim = rebase --interactive master
   rbc = rebase --continue
@@ -16,3 +18,8 @@
   edit-prune = !"git branch --merged | grep -Ev '\\*|master|develop' >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
 [fetch]
   prune = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
