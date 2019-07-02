@@ -6,10 +6,12 @@
 [alias]
   ph = push
   phf = push --force-with-lease
+  phsuo = !"git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
   pl = pull
   plr = pull --rebase
   co = checkout
   cob = checkout -b
+  rsho = !"git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
   rb = rebase
   rbm = rebase master
   rbim = rebase --interactive master
@@ -22,4 +24,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
+  required = true
+[url "git@git.2nd.io:"]
+      insteadOf = https://git.2nd.io/
