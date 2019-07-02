@@ -60,7 +60,7 @@
 "wmctrl -a Slack"
   alt + shift + s
 
-"wmctrl -a Konsole"
+"wmctrl -a Alacritty"
   alt + shift + t
 
 "wmctrl -a 'Visual Studio Code'"
