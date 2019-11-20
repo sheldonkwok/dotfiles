@@ -11,7 +11,7 @@ export ZSH=/home/sheldon/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="af-magic"
+ZSH_THEME="fmj"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -101,10 +101,3 @@ source ~/.me.zsh
 source ~/.work.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/sheldon/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
