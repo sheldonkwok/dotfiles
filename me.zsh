@@ -16,6 +16,7 @@ fi
 export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.local/ssi:$HOME/.ssi/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/nvim-linux64/bin
+export PATH=$PATH:$HOME/.yarn/bin
 
 source aws_zsh_completer.sh
 source <(kops completion zsh)
@@ -47,8 +48,9 @@ alias git-clean-merged='git branch --merged | egrep -v "(^\*|master|dev)" | xarg
 alias gcnv='git commit --no-verify'
 alias ip='ip -c'
 alias ipb='ip -brief'
-alias code='code -n'
 alias t='terraform'
+alias t11='terraform-0.11'
+alias t12='terraform-0.12'
 alias ag='rg'
 alias open='kde-open5'
 alias dr='docker run --rm'
@@ -56,6 +58,8 @@ alias cat='bat'
 alias ping='prettyping'
 alias n='npm'
 alias nr='npm run'
-
+alias o='xdg-open'
 
 setxkbmap -option "caps:swapescape"
+
+
