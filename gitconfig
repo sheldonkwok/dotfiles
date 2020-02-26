@@ -12,6 +12,7 @@
   plr = pull --rebase
   ca = commit --amend
   canv = commit --amend -nv
+  cnv = commit -nv
   co = checkout
   cob = checkout -b
   rsho = !"git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
@@ -30,5 +31,10 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
   required = true
+
+[url "git@git.2nd.io"]
+  insteadOf = ssi
+
 [url "git@git.2nd.io:"]
-      insteadOf = https://git.2nd.io/
+  insteadOf = https://git.2nd.io/
+

@@ -42,7 +42,7 @@
 "xbindkeys_show"
   control+shift + q
 
-"rofi -combi-modi window,drun -show combi -modi combi"
+"rofi -combi-modi window,drun,run -show combi -modi combi"
   alt + shift + d
 
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
@@ -57,7 +57,7 @@
 "wmctrl -a Chrome"
   alt + shift + c
 
-"wmctrl -a Slack"
+"wmctrl -a 'Second Spectrum, Inc'"
   alt + shift + s
 
 "wmctrl -a Alacritty"

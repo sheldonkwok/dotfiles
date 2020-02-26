@@ -18,12 +18,20 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
 
+Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'airblade/vim-gitgutter'
+let g:fugitive_gitlab_domains = ['https://git.2nd.io']
+
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'w0rp/ale'
 " Plug 'jiangmiao/auto-pairs'
 
-let g:polyglot_disabled = ['go', 'typescsript', 'elixir']
+" typescript
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'HerringtonDarkholme/yats.vim'
+let g:polyglot_disabled = ['go', 'typescript', 'elixir']
+
 Plug 'sheerun/vim-polyglot'
 
 " golang
@@ -36,10 +44,6 @@ Plug 'slashmili/alchemist.vim'
 " markdown
 Plug 'shime/vim-livedown'
 
-" typescript
-" Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'Quramy/vim-js-pretty-template'
 
 autocmd FileType typescript let $PATH .= ":" . trim(system("npm bin"))
 
@@ -55,7 +59,12 @@ Plug 'fatih/vim-hclfmt'
 "       \ <SID>check_back_space() ? "\<TAB>" :
 "       \ coc#refresh()
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" completion
 Plug 'Valloric/YouCompleteMe'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc-tsserver'
+
 call plug#end()
 
 syntax enable
@@ -110,6 +119,7 @@ set backspace=indent,eol,start
 
 set mouse-=a
 
+" keep paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
   return ''
@@ -153,12 +163,14 @@ nnoremap <Leader>b :Buffers <CR>
 
 " ale
 let g:ale_fix_on_save = 1
-" \   'json': ['prettier'],
 " \   'elixir': ['mix_format'],
 let g:ale_fixers = {
+\   'ruby': ['prettier'],
+\   'json': ['prettier'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'markdown': ['prettier'],
+\   'yaml': ['prettier'],
 \}
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 110'
@@ -194,7 +206,8 @@ au FileType python setl sw=4 sts=4 et
 au FileType Jenkinsfile setl sw=4 sts=4 et
 
 " Rust
-let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
+" let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
+let g:rustfmt_autosave = 1
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
