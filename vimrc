@@ -30,7 +30,7 @@ Plug 'w0rp/ale'
 " typescript
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'HerringtonDarkholme/yats.vim'
-let g:polyglot_disabled = ['go', 'typescript', 'elixir']
+let g:polyglot_disabled = ['go', 'typescript', 'elixir', 'rust']
 
 Plug 'sheerun/vim-polyglot'
 
@@ -44,26 +44,18 @@ Plug 'slashmili/alchemist.vim'
 " markdown
 Plug 'shime/vim-livedown'
 
-
-autocmd FileType typescript let $PATH .= ":" . trim(system("npm bin"))
-
-
 " terraform
 Plug 'hashivim/vim-terraform'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
 
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " completion
 Plug 'Valloric/YouCompleteMe'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc-tsserver'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 
@@ -144,6 +136,8 @@ nnoremap tn2 :tabn 2<CR>
 nnoremap tn3 :tabn 3<CR>
 nnoremap tn4 :tabn 4<CR>
 
+:imap jj <Esc>
+
 " Always show statusline
 set laststatus=2
 
@@ -191,6 +185,7 @@ let g:terraform_fmt_on_save = 1
 
 " Typescript
 let g:polyglot_disabled = ['typescript']
+autocmd FileType typescript let $PATH .= ":" . trim(system("npm bin"))
 autocmd FileType typescript nnoremap <Leader>d :split <bar> YcmCompleter GoToDefinition <CR>
 autocmd FileType typescript nnoremap <Leader>t :YcmCompleter GetType <CR>
 autocmd FileType typescript nnoremap <Leader>r :YcmCompleter RefactorRename
@@ -206,9 +201,17 @@ au FileType python setl sw=4 sts=4 et
 au FileType Jenkinsfile setl sw=4 sts=4 et
 
 " Rust
-" let g:ycm_rust_src_path = '/home/sheldon/.cargo/bin/rustc'
+
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rust-analyzer'],
+\ }
+
+autocmd BufReadPost *.rs setlocal filetype=rust
 let g:rustfmt_autosave = 1
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" ycm
+" let g:ycm_filetype_blacklist = { 'rust': 1 }

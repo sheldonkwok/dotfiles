@@ -57,7 +57,7 @@
 "wmctrl -a Chrome"
   alt + shift + c
 
-"wmctrl -a 'Second Spectrum, Inc'"
+"wmctrl -a 'Slack'"
   alt + shift + s
 
 "wmctrl -a Alacritty"
