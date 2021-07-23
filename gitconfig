@@ -18,6 +18,8 @@
   rsho = !"git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
   rb = rebase
   rbm = rebase master
+  rba = rebase --abort
+  rbi = rebase --interactive 
   rbim = rebase --interactive master
   rbc = rebase --continue
   rbs = rebase --skip
@@ -38,3 +40,5 @@
 [url "git@git.2nd.io:"]
   insteadOf = https://git.2nd.io/
 
+[pull]
+  ff = only
