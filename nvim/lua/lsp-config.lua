@@ -118,8 +118,8 @@ lspconfig.yamlls.setup{
   settings = {
     yaml = {
       schemas = {
-        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml"
-        -- ["file:///Users/sheldon/.config/nvim/schemas/k8s-v1.18.0-standalone-strict.json"] = "/*.k8s.yaml"
+        ["kubernetes"] = "k8.yaml",
+        ["kubernetes"] = "/*.k8s.yaml",
       }
     }
   }
