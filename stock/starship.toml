@@ -1,3 +1,6 @@
+[terraform]
+symbol = "行"
+
 [aws]
 disabled = true
 

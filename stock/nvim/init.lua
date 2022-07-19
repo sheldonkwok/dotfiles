@@ -24,6 +24,9 @@ require('packer').startup(function()
 
   -- Other file types
   use 'blankname/vim-fish'
+
+  -- misc
+  use 'ruanyl/vim-gh-line'
 end)
 
 require("lsp-config")
@@ -56,6 +59,7 @@ vim.cmd [[
 
   set nowrap
   set incsearch
+  set number
 
   set ttyfast
   set lazyredraw
@@ -71,7 +75,8 @@ vim.cmd [[
   " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
   set autochdir
 
-  autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
+  " misc
+  let g:gh_gitlab_domain = "git.2nd.io"
 ]]
 
 vim.api.nvim_set_keymap('n', '<Leader>f',

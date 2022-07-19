@@ -111,7 +111,7 @@ lspconfig.tsserver.setup({
 })
 
 -- Terraform
-lspconfig.terraformls.setup{} 
+-- lspconfig.terraformls.setup{} 
 
 -- YAML
 lspconfig.yamlls.setup{
@@ -131,7 +131,7 @@ null_ls.setup({
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
-        -- null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.formatting.terraform_fmt,
     },
     on_attach = on_attach,
 })
