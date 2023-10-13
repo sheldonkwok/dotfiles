@@ -24,6 +24,7 @@ require('packer').startup(function()
 
   -- Other file types
   use 'blankname/vim-fish'
+  use 'earthly/earthly.vim'
 
   -- misc
   use 'ruanyl/vim-gh-line'
@@ -77,6 +78,9 @@ vim.cmd [[
 
   " misc
   let g:gh_gitlab_domain = "git.2nd.io"
+
+  au BufRead,BufNewFile *.earthfile set filetype=Earthfile
+  au BufRead,BufNewFile Earthfile set filetype=Earthfile
 ]]
 
 vim.api.nvim_set_keymap('n', '<Leader>f',
