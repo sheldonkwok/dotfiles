@@ -6,7 +6,7 @@ export EDITOR=nvim
 export PNPM_HOME=$HOME/Library/pnpm
 set --universal nvm_default_version 18
 
-fish_add_path -p $HOME/.bin $HOME/.local/bin $HOME/.local/ssi $HOME/.ssi/bin /opt/homebrew/bin /opt/homebrew/opt/openjdk/bin $PNPM_HOME $HOME/.cargo/bin
+fish_add_path -p $HOME/.bin $HOME/.local/bin $HOME/.local/ssi $HOME/.ssi/bin /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/openjdk/bin $PNPM_HOME $HOME/.cargo/bin
 
 starship init fish | source
 
@@ -29,6 +29,7 @@ alias ag='rg'
 alias cat='bat'
 alias ping='prettyping'
 alias n='npm'
+alias p='pnpm'
 alias jwt='jq -R \'split(".") | .[0],.[1] | @base64d | fromjson\''
 
 alias cls='clear && ls'
@@ -46,7 +47,7 @@ alias t='terraform'
 alias t12='terraform-0.12'
 alias t13='terraform-0.13'
 alias t14='terraform-0.14'
-alias t1='terraform-1.0'
+alias t1='terraform-1'
 alias dr='docker run --rm'
 alias nr='npm run'
 alias v='vault'
