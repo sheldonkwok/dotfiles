@@ -6,11 +6,24 @@
   editor = nvim
   pager = delta
 
+[push]
+  autoSetupRemote = true
+
 [fetch]
   prune = true
 
 [diff]
+  tool = difftastic
   colorMoved = default
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -54,3 +67,4 @@
   cleanup = "!git branch --merged | grep  -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d"
   edit-prune = !"git branch --merged | grep -Ev '\\*|main|develop' >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
   ssic = "!git clone git@git.2nd.io:$1"
+  dft = difftool

@@ -13,6 +13,7 @@ starship init fish | source
 # aws cli
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 alias ...='cd ../../'
 
@@ -34,6 +35,7 @@ alias jwt='jq -R \'split(".") | .[0],.[1] | @base64d | fromjson\''
 
 alias cls='clear && ls'
 alias l='exa -lh --color always'
+alias lc='exa -lhr --color always -s changed'
 alias psg='ps aux | grep'
 alias ping8='ping 8.8.8.8'
 alias tgs='tig status'
