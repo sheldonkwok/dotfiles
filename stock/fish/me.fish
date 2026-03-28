@@ -6,7 +6,7 @@ export EDITOR=nvim
 export PNPM_HOME=$HOME/Library/pnpm
 set --universal nvm_default_version 18
 
-fish_add_path -p $HOME/.bin $HOME/.local/bin $HOME/.local/ssi $HOME/.ssi/bin /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/openjdk/bin $PNPM_HOME $HOME/.cargo/bin
+fish_add_path -p $HOME/.bin $HOME/.local/bin $HOME/.local/ssi $HOME/.ssi/bin /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/openjdk/bin $PNPM_HOME $HOME/.cargo/bin /Applications/Ghostty.app/Contents/MacOS
 
 starship init fish | source
 
@@ -34,8 +34,7 @@ alias p='pnpm'
 alias jwt='jq -R \'split(".") | .[0],.[1] | @base64d | fromjson\''
 
 alias cls='clear && ls'
-alias l='exa -lh --color always'
-alias lc='exa -lhr --color always -s changed'
+alias l='eza -lhr --color always -s changed'
 alias psg='ps aux | grep'
 alias ping8='ping 8.8.8.8'
 alias tgs='tig status'

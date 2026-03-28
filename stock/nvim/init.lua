@@ -1,40 +1,64 @@
-require('packer').startup(function()
-  -- Packer 
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- Movement
-  use 'scrooloose/nerdtree'
-  use 'ibhagwan/fzf-lua'
-
-  -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-
-  -- TypeScript
-  use "neovim/nvim-lspconfig"
-  use "jose-elias-alvarez/null-ls.nvim"
-  use "jose-elias-alvarez/nvim-lsp-ts-utils"
-
-  -- HashiCorp
-  use 'hashivim/vim-terraform'
-
-  -- Other file types
-  use 'blankname/vim-fish'
-  use 'earthly/earthly.vim'
-
-  -- misc
-  use 'ruanyl/vim-gh-line'
-end)
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- Movement
+    'scrooloose/nerdtree',
+    'ibhagwan/fzf-lua',
+    
+    -- Completion
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    
+    -- TypeScript/LSP
+    'neovim/nvim-lspconfig',
+    'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/nvim-lsp-ts-utils',
+    
+    -- HashiCorp
+    'hashivim/vim-terraform',
+    
+    -- Other file types
+    'blankname/vim-fish',
+    'earthly/earthly.vim',
+    
+    -- Misc
+    'ruanyl/vim-gh-line',
+    
+    -- Colors
+    'navarasu/onedark.nvim',
+  },
+  install = { colorscheme = { "onedark" } },
+  checker = { enabled = false },
+})
 
 require("lsp-config")
 
 vim.cmd [[
-  colorscheme fmj
-  set background=dark
+  let g:onedark_config = {
+    \ 'style': 'warmer',
+  \}
+  colorscheme onedark
+  " set background=dark
 
   set noswapfile
 
