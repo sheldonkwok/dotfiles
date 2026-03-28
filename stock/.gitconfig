@@ -1,6 +1,12 @@
 [user]
-  email = sheldon.kwok@geniussports.com
+  email = me@sheldonk.com
   name = Sheldon Kwok
+
+[includeIf "gitdir:~/workspace/ssi/"]
+  path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/workspace/gsg/"]
+  path = ~/.gitconfig-work
 
 [core]
   editor = nvim
