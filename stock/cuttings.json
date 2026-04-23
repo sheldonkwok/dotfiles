@@ -1,5 +1,7 @@
 {
   ".gitconfig": ".gitconfig",
+  ".tmux.conf": ".tmux.conf",
+  ".tmuxline.conf": ".tmuxline.conf",
   "starship.toml": ".config/starship.toml",
   "ghostty.config": ".config/ghostty/config",
   "lazyvim": ".config/nvim",
