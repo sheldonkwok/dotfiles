@@ -8,3 +8,5 @@ source ~/.config/fish/work.fish
 
 # Added by Windsurf
 fish_add_path /Users/sheldon.kwok/.codeium/windsurf/bin
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
