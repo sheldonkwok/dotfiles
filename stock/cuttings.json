@@ -1,7 +1,7 @@
 {
   "starship.toml": ".config/starship.toml",
   "ghostty.config": ".config/ghostty/config",
-  "nvim": ".config/nvim",
+  "lazyvim": ".config/nvim",
   "fish/config.fish": ".config/fish/config.fish",
   "fish/me.fish": ".config/fish/me.fish",
   "fish/fish_plugins": ".config/fish/fish_plugins"
